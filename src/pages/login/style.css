@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    transform: translateX(25%);
+}
+
+.table{
+    padding: 1.2rem;
+    margin-top: 20px;
+}
