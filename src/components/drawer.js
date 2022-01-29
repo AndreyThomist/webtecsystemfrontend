@@ -119,22 +119,16 @@ const DrawerComponent = (props) => {
                     </MenuItem>
                     <MenuItem
                       onClick={() => {
-<<<<<<< HEAD
                         navigate("/avaliacoes");
                       }}
                     >
                       Avaliação de Reação para Treinamento
                     </MenuItem>
-
-                 
-
-=======
-                        navigate("/planostreinamentos");
-                      }}
-                    >
+                    <MenuItem onClick={() => {
+                           navigate("/planostreinamentos");
+                    }}>
                       Planos de Treinamento
                     </MenuItem>
->>>>>>> fe90f8c5f66c07cc65d4b03538e50377660834ce
                     
                   </MenuGroup>
                   <MenuDivider />

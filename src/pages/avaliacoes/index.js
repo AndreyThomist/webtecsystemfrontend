@@ -121,7 +121,6 @@ const Avaliacoes = () => {
     });
     const users = await responseUsers.json();
 
-
     setAvaliacoes(avaliacoes);
     setCargos(cargos);
     setSetores(setores);
@@ -185,8 +184,23 @@ const Avaliacoes = () => {
       });
       return;
     }
-    setName(null);
-    nameRef.current.value = "";
+    setTreinamentoId("");
+    setSetorId("");
+    setCargoId("");
+    setPeriodo("");
+    setCarga("");
+    setTipo("");
+    setAssunto("");
+    setAlcance("");
+    setAplicabilidade("");
+    setTempo("");
+    setDesempenho("");
+    setMaterial("");
+    setOrganizacao("");
+    setTransporte("");
+    setHospedagem("");
+    setOrganizacao("");
+    setCriticas("");
     await fetchAvaliacoes();
   };
   const deleteHandler = async () => {
@@ -205,12 +219,26 @@ const Avaliacoes = () => {
       }
     );
     setCurrentEdit(null);
+    setEditMode(false);
     await fetchAvaliacoes();
   };
   const editHandler = (record) => {
-    setName(record.name);
-    nameRef.current.value = record.name;
+    setUserId(record.userId)
     setCurrentEdit(record);
+    setTreinamentoId(record.treinamentoId);
+    setPeriodo(record.periodo);
+    setCarga(record.carga);
+    setTipo(record.tipo);
+    setAssunto(record.assunto);
+    setAlcance(record.alcance);
+    setAplicabilidade(record.aplicabilidade);
+    setTempo(record.tempo);
+    setDesempenho(record.desempenho);
+    setMaterial(record.material);
+    setOrganizacao(record.organizacao);
+    setTransporte(record.transporte);
+    setHospedagem(record.hospedagem);
+    setCriticas(record.criticas);
     setEditMode(true);
   };
 
@@ -257,6 +285,24 @@ const Avaliacoes = () => {
         duration: 80000,
         isClosable: true,
       });
+      setTreinamentoId("");
+      setSetorId("");
+      setCargoId("");
+      setPeriodo("");
+      setCarga("");
+      setTipo("");
+      setAssunto("");
+      setAlcance("");
+      setAplicabilidade("");
+      setTempo("");
+      setDesempenho("");
+      setMaterial("");
+      setOrganizacao("");
+      setTransporte("");
+      setHospedagem("");
+      setOrganizacao(null);
+      setCriticas("");
+      setEditMode(false);
     } else {
       toast({
         title: "error",
@@ -265,10 +311,7 @@ const Avaliacoes = () => {
       });
       return;
     }
-    setName(null);
-    nameRef.current.value = null;
-    setCurrentEdit(null);
-    setEditMode(false);
+   
     await fetchAvaliacoes();
   };
 
@@ -279,27 +322,27 @@ const Avaliacoes = () => {
     },
     {
       name: "Treinamento",
-      selector: (row) => row.treinamento
+      selector: (row) => row.treinamento.name,
     },
     {
       name: "Periodo Realização",
-      selector: (row) => row.periodo?row.periodo:"Não informado",
+      selector: (row) => row.periodo,
     },
     {
       name: "Nome do Participante",
-      selector: (row) => row.user?row.user.name:"Não informado",
+      selector: (row) => row.user.name,
     },
     {
       name: "Cargo",
-      selector: (row) => row.cargo?row.cargo:"Não informado",
+      selector: (row) => row.user.cargo.name,
     },
     {
       name: "Setor",
-      selector: (row) => row.setor?row.setor:"Não informado",
+      selector: (row) => row.user.setor.name,
     },
     {
       name: "Tipo",
-      selector: (row) => row.tipo?row.tipo:"Não informado",
+      selector: (row) => row.tipo,
     },
     {
       name: "Ações",
@@ -369,47 +412,24 @@ const Avaliacoes = () => {
                   <Select
                     name="userId"
                     value={userId}
-                    onChange={(e) => setUserId(e.target.value)}
+                    onChange={(e) => {
+                      setUserId(e.target.value);
+                      const foundedUser = users.find(user => user.id == e.target.value)
+                      setSetorId(foundedUser.setor.name)
+                      setCargoId(foundedUser.cargo.name)
+                    }}
                   >
+                    <option>Selecione um participante</option>
                     {users.map((user) => (
                       <option key={user.id} value={user.id}>
                         {user.name}
                       </option>
                     ))}
                   </Select>
-
                   <FormLabel>Setor</FormLabel>
-                  <Select
-                    value={setorId}
-                    onChange={(e) => {
-                      setSetorId(e.target.value);
-                    }}
-                  >
-                    <option>Selecione um setor</option>
-                    {setores.map((setor) => {
-                      return (
-                        <option key={setor.id} value={setor.id}>
-                          {setor.name}
-                        </option>
-                      );
-                    })}
-                  </Select>
+                  <Input disabled={true} value={setorId} />
                   <FormLabel>Cargo</FormLabel>
-                  <Select
-                    value={cargoId}
-                    onChange={(e) => {
-                      setCargoId(e.target.value);
-                    }}
-                  >
-                    <option>Selecione um cargo</option>
-                    {cargos.map((cargo) => {
-                      return (
-                        <option key={cargo.id} value={cargo.id}>
-                          {cargo.name}
-                        </option>
-                      );
-                    })}
-                  </Select>
+                  <Input disabled={true} value={cargoId}></Input>
                   <FormLabel>Treinamento</FormLabel>
                   <Select
                     value={treinamentoId}
@@ -429,6 +449,7 @@ const Avaliacoes = () => {
                   ,<FormLabel>Periodo Realização</FormLabel>
                   <Input
                     value={periodo}
+                    type={"datetime-local"}
                     onChange={(e) => {
                       setPeriodo(e.target.value);
                     }}
@@ -436,6 +457,7 @@ const Avaliacoes = () => {
                   />
                   <FormLabel>Carga Horária</FormLabel>
                   <Input
+                    type={"number"}
                     value={carga}
                     onChange={(e) => {
                       setCarga(e.target.value);
@@ -568,20 +590,6 @@ const Avaliacoes = () => {
                     <option value={3}>BOM</option>
                     <option value={4}>ÓTIMO</option>
                   </Select>
-                  <FormLabel>Transporte Utilizado (Quando utilizado)</FormLabel>
-                  <Select
-                    value={transporte}
-                    onChange={(e) => {
-                      setTransporte(e.target.value);
-                    }}
-                  >
-                    <option>Selecione uma opção</option>
-
-                    <option value={1}>FRACO</option>
-                    <option value={2}>REGULAR</option>
-                    <option value={3}>BOM</option>
-                    <option value={4}>ÓTIMO</option>
-                  </Select>
                   <FormLabel>Hospedagem (quando utilizada)</FormLabel>
                   <Select
                     value={hospedagem}
@@ -644,7 +652,7 @@ const Avaliacoes = () => {
         </SimpleGrid>
       </div>
       <div className="table">
-        <DataTable data={cargos} columns={columns}></DataTable>
+        <DataTable data={avaliacoes} columns={columns}></DataTable>
       </div>
     </>
   );
