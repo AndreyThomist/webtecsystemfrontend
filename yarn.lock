@@ -2210,6 +2210,11 @@
     "@svgr/plugin-svgo" "^5.5.0"
     "loader-utils" "^2.0.0"
 
+"@swc/helpers@0.2.14":
+  "integrity" "sha512-wpCQMhf5p5GhNg2MmGKXzUNwxe7zRiCsmqYsamez2beP7mKPCSiu+BjZcdN95yYSzO857kr0VfQewmGpS77nqA=="
+  "resolved" "https://registry.npmjs.org/@swc/helpers/-/helpers-0.2.14.tgz"
+  "version" "0.2.14"
+
 "@testing-library/dom@^8.0.0", "@testing-library/dom@>=7.21.4":
   "integrity" "sha512-idsS/cqbYudXcVWngc1PuWNmXs416oBy2g/7Q8QAUREt5Z3MUkAL2XJD7xazLJ6esDfqRDi/ZBxk+OPPXitHRw=="
   "resolved" "https://registry.npmjs.org/@testing-library/dom/-/dom-8.11.2.tgz"
@@ -6465,6 +6470,23 @@
     "array-includes" "^3.1.3"
     "object.assign" "^4.1.2"
 
+"kalend-layout@0.0.8":
+  "integrity" "sha512-k1GrcUDWKuoDeetQ1ejDgRhoiUI5J+Vj6zyhMulBdsb+EHNcIT14j0fx7jxdyBesCMXa6+ZA2R5JWtM6whYIqQ=="
+  "resolved" "https://registry.npmjs.org/kalend-layout/-/kalend-layout-0.0.8.tgz"
+  "version" "0.0.8"
+  dependencies:
+    "luxon" "2.1.1"
+
+"kalend@^0.9.0":
+  "integrity" "sha512-1+lGyjijoAOHHgxfpUyiqi1Y20x289DQlZ5ZYfDvmJ6amxDhX4aK0pZWsJ926Efa55jsXFZVwlgqW0ScawufXA=="
+  "resolved" "https://registry.npmjs.org/kalend/-/kalend-0.9.0.tgz"
+  "version" "0.9.0"
+  dependencies:
+    "@swc/helpers" "0.2.14"
+    "kalend-layout" "0.0.8"
+    "luxon" "2.1.1"
+    "regenerator-runtime" "0.13.9"
+
 "kind-of@^6.0.2":
   "integrity" "sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw=="
   "resolved" "https://registry.npmjs.org/kind-of/-/kind-of-6.0.3.tgz"
@@ -6636,6 +6658,11 @@
   "version" "6.0.0"
   dependencies:
     "yallist" "^4.0.0"
+
+"luxon@2.1.1":
+  "integrity" "sha512-6VQVNw7+kQu3hL1ZH5GyOhnk8uZm21xS7XJ/6vDZaFNcb62dpFDKcH8TI5NkoZOdMRxr7af7aYGrJlE/Wv0i1w=="
+  "resolved" "https://registry.npmjs.org/luxon/-/luxon-2.1.1.tgz"
+  "version" "2.1.1"
 
 "lz-string@^1.4.4":
   "integrity" "sha1-wNjq82BZ9wV5bh40SBHPTEmNOiY="
@@ -7937,7 +7964,7 @@
     "strip-ansi" "^6.0.1"
     "text-table" "^0.2.0"
 
-"react-dom@*", "react-dom@^16.8.0 || 17.x", "react-dom@^17.0.2", "react-dom@>= 16.8.0", "react-dom@>=16.13", "react-dom@>=16.8", "react-dom@>=16.8 || ^17.0.0", "react-dom@>=16.8.6":
+"react-dom@*", "react-dom@^16.8.0 || 17.x", "react-dom@^17.0.2", "react-dom@>= 16.8.0", "react-dom@>=16.13", "react-dom@>=16.8", "react-dom@>=16.8 || ^17.0.0", "react-dom@>=16.8.6", "react-dom@17.0.2":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -8167,7 +8194,7 @@
   "resolved" "https://registry.npmjs.org/regenerate/-/regenerate-1.4.2.tgz"
   "version" "1.4.2"
 
-"regenerator-runtime@^0.13.4", "regenerator-runtime@^0.13.9":
+"regenerator-runtime@^0.13.4", "regenerator-runtime@^0.13.9", "regenerator-runtime@0.13.9":
   "integrity" "sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA=="
   "resolved" "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz"
   "version" "0.13.9"

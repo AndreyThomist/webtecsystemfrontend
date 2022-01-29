@@ -121,6 +121,21 @@ const Levantamentos = () => {
     });
     const users = await responseUsers.json();
 
+    for(let i = 0; i < levantamentos.length; i++){
+      for(let j = 0; j < cargos.length; j++){
+        if(levantamentos[i].cargoId === cargos[j].id){
+          levantamentos[i].cargo = cargos[j].nome;
+        }
+      }
+      for(let j = 0; j < setores.length; j++){
+        if(levantamentos[i].setorId === setores[j].id){
+          levantamentos[i].setor = setores[j].nome;
+        }
+      }
+    }
+    
+
+
     setLevantamentos(levantamentos);
     setCargos(cargos);
     setSetores(setores);
@@ -259,14 +274,7 @@ const Levantamentos = () => {
       name: "Id",
       selector: (row) => row.id,
     },
-    {
-      name: "Treinamento",
-      selector: (row) => row.treinamento,
-    },
-    {
-      name: "Periodo Realização",
-      selector: (row) => (row.periodo ? row.periodo : "Não informado"),
-    },
+
     {
       name: "Nome do Participante",
       selector: (row) => (row.user ? row.user.name : "Não informado"),
@@ -278,10 +286,6 @@ const Levantamentos = () => {
     {
       name: "Setor",
       selector: (row) => (row.setor ? row.setor : "Não informado"),
-    },
-    {
-      name: "Tipo",
-      selector: (row) => (row.tipo ? row.tipo : "Não informado"),
     },
     {
       name: "Ações",
