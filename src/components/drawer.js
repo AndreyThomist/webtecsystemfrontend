@@ -117,6 +117,13 @@ const DrawerComponent = (props) => {
                     >
                       Descrição de cargos
                     </MenuItem>
+                    <MenuItem
+                      onClick={() => {
+                        navigate("/planostreinamentos");
+                      }}
+                    >
+                      Planos de Treinamento
+                    </MenuItem>
                     
                   </MenuGroup>
                   <MenuDivider />

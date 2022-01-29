@@ -13,6 +13,7 @@ import { Users } from "./pages/users";
 import { Treinamentos } from "./pages/treinamentos";
 import { EntregasEpi } from "./pages/entregaepi";
 import { DescricaoCargo } from "./pages/descricaoCargo";
+import {PlanosTreinamentoCalendar} from './pages/planosTreinamento'
 
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
       <Route path="/treinamentos"  element={auth.isLoggedIn ? <Treinamentos /> : <Navigate to={"/login"} />}></Route>
       <Route path="/entregasepi"  element={auth.isLoggedIn ? <EntregasEpi /> : <Navigate to={"/login"} />}></Route>
       <Route path="/descricaocargos"  element={auth.isLoggedIn ? <DescricaoCargo /> : <Navigate to={"/login"} />}></Route>
+      <Route path="/planostreinamentos"  element={auth.isLoggedIn ? <PlanosTreinamentoCalendar /> : <Navigate to={"/login"} />}></Route>
     </Routes>
     </>
   );
