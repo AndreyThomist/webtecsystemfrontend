@@ -380,6 +380,7 @@ const PlanosTreinamentoCalendar = () => {
       </Box>
       <div className="calendar">
         <Box my={4} bg={"white"} textAlign="left" height={"1000"}>
+          
           <Kalend
             events={events}
             timeFormat={"24"}
