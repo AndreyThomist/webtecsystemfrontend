@@ -15,6 +15,7 @@ import { EntregasEpi } from "./pages/entregaepi";
 import { DescricaoCargo } from "./pages/descricaoCargo";
 import { Avaliacoes } from "./pages/avaliacoes";
 import {PlanosTreinamentoCalendar} from './pages/planosTreinamento'
+import { Levantamentos } from "./pages/levantamento";
 
 
 const App = () => {
@@ -51,6 +52,7 @@ const App = () => {
       <Route path="/avaliacoes"  element={auth.isLoggedIn ? <Avaliacoes /> : <Navigate to={"/login"} />}></Route>
 
       <Route path="/planostreinamentos"  element={auth.isLoggedIn ? <PlanosTreinamentoCalendar /> : <Navigate to={"/login"} />}></Route>
+      <Route path="/levantamentos" element={auth.isLoggedIn ? <Levantamentos /> : <Navigate to={"/login"} />}></Route>
     </Routes>
     </>
   );
