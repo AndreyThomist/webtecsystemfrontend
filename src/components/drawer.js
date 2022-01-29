@@ -46,7 +46,7 @@ const DrawerComponent = (props) => {
               <div className="menu-container">
                 <Menu>
                   <MenuButton as={Button} colorScheme="blue">
-                    CONFIG
+                    Configurações
                   </MenuButton>
                   <MenuList>
                     <MenuGroup>
@@ -64,7 +64,7 @@ const DrawerComponent = (props) => {
               </div>
               <Menu>
                 <MenuButton as={Button} colorScheme="blue">
-                  Modulo de RH
+                  Módulo de RH
                 </MenuButton>
                 <MenuList>
                   <MenuGroup>
@@ -73,7 +73,7 @@ const DrawerComponent = (props) => {
                         navigate("/cargos");
                       }}
                     >
-                      CARGO
+                      Cargos
                     </MenuItem>
                     <MenuItem
                       onClick={() => {
@@ -117,6 +117,16 @@ const DrawerComponent = (props) => {
                     >
                       Descrição de cargos
                     </MenuItem>
+                    <MenuItem
+                      onClick={() => {
+                        navigate("/avaliacoes");
+                      }}
+                    >
+                      Avaliação de Reação para Treinamento
+                    </MenuItem>
+
+                 
+
                     
                   </MenuGroup>
                   <MenuDivider />
